@@ -16,20 +16,23 @@ import Exception from './pages/exception/index';
 import stores from './models';
 
 const RouterConfig = ({ history }) => {
+  const Content = props => (
+    <BaseLayout {...props}>
+      <Switch>
+        <Route path="/" render={() => <Redirect to="/home" />} exact />
+        <Route path="/home" component={HomePage} exact />
+        <Route path="/about" render={() => <h1>About....</h1>} exact />
+        <Route path="/exception" component={Exception} />
+        <Route path="/demo" component={DemoPage} exact />
+      </Switch>
+    </BaseLayout>
+  );
   return (
     <Provider stores={stores}>
       {/* LocaleProvider 以防以后需要做国际化 */}
       <LocaleProvider locale={zhCN}>
         <Router history={history}>
-          <BaseLayout>
-            <Switch>
-              <Route path="/" render={() => <Redirect to="/home" />} exact />
-              <Route path="/home" component={HomePage} exact />
-              <Route path="/about" render={() => <h1>About....</h1>} exact />
-              <Route path="/exception" component={Exception} />
-              <Route path="/demo" component={DemoPage} exact />
-            </Switch>
-          </BaseLayout>
+          <Route path="/" render={Content} />
         </Router>
       </LocaleProvider>
     </Provider>

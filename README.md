@@ -1,7 +1,6 @@
 ## 项目结构
 
 <pre>
-.
 build             // 编译目录
 config            // webpack配置
 public            // 公共文件 可以放一些第三方字体 样式库等
@@ -16,7 +15,7 @@ src
   |-- index.js    // 入口文件
   |-- router.js   // 基础路由
   |-- vars.less   // 公共样式存放位置
-..eslintignore    // eslint过滤文件清单
+.eslintignore    // eslint过滤文件清单
 .eslintrc.js      // eslint配置
 .gitignore
 package.json  
